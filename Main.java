@@ -85,23 +85,32 @@ public class Main {
             }
         }
 
-        String[] rubAccounts = new String[countOfRubs]; //фильтр rub-карт
+        String[] rubAccounts = new String[countOfRubs]; //фильтр rub-карт (массив таких карт)
 
-        for(ACCOUNTS acc: ArrayAcc) {
-            for (int i = 0; i < rubAccounts.length; i++) {
+        int i = 0;
+        int j = 0;
+
+        for (ACCOUNTS acc : ArrayAcc) {  //цикл для прохода по всем картам и поискам только рублевых, с последующим занесением их в rubAccounts, созданный выше
+            if (i < rubAccounts.length) {
                 if (acc.currency.equals("RUB")) {
-                    rubAccounts[i] = acc.accountNumber; //i-счетчик нужен для того, чтобы вписывать в новый массив (rubAccounts[]) значения из accountNumber
+                    rubAccounts[i++] = ArrayAcc[j].accountNumber;
                 }
             }
+            j++;
         }
 
-        String[] usdAccounts = new String[countOfUsds]; //фильтр usd-карт
-        for(ACCOUNTS acc: ArrayAcc) {
-            for (int i = 0; i < usdAccounts.length; i++) {
+        String[] usdAccounts = new String[countOfUsds]; //фильтр usd-карт (массив таких карт)
+        
+        i = 0;
+        j = 0;
+
+        for (ACCOUNTS acc : ArrayAcc) { //цикл для прохода по всем картам и поискам только долларовых, с последующим занесением их в usdAccounts, созданный выше
+            if (i < usdAccounts.length) {
                 if (acc.currency.equals("USD")) {
-                    usdAccounts[i] = acc.accountNumber; //i-счетчик нужен для того, чтобы вписывать в новый массив (usdAccounts[]) значения из accountNumber
+                    usdAccounts[i++] = ArrayAcc[j].accountNumber;
                 }
             }
+            j++;
         }
 
         intUcid1 = Long.parseLong(card1.ucid); //преобразование стринга в лонг (в инт не получается из-за длины номера договора)
