@@ -120,7 +120,7 @@ public class Main {
     }
 }
 
-class ACCOUNTS {
+class ACCOUNTS {  // класс для создания объектов - договоров
     String accountNumber;
     String currency;
     String productType;
@@ -134,7 +134,7 @@ class ACCOUNTS {
 
 }
 
-class CARDS {
+class CARDS {  // класс для создания объектов - карт
     String ucid;
     String accountNumber;
     String status;
